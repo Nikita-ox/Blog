@@ -42,3 +42,4 @@ def post_detail(request, post, year, month, day):
     return render(request,
                   "database_where/post/detail.html",
                   {'post': post})
+
