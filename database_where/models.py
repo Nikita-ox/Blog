@@ -32,6 +32,8 @@ class Post(m.Model):
 
     class Meta:
         ordering = ["-publish"]
+        verbose_name = "Пост"
+        verbose_name_plural = "Посты"
         indexes = [
             m.Index(fields=["-publish"])
         ]
@@ -46,3 +48,26 @@ class Post(m.Model):
                              self.publish.day,
                              self.slug])
 
+
+class Comment(m.Model):
+    post = m.ForeignKey(Post,
+                        on_delete=m.CASCADE,
+                        related_name='комментарии')
+    name = m.CharField(max_length=80)
+    email = m.EmailField()
+    body = m.TextField()
+    created = m.DateTimeField(auto_now_add=True)
+    updated = m.DateTimeField(auto_now=True)
+    active = m.BooleanField(default=True)
+
+    class Meta:
+        ordering = ['created']
+        verbose_name = "Комментарий"
+        verbose_name_plural = "Комментарии"
+
+    indexes = [
+        m.Index(fields=['created']),
+    ]
+
+    def __str__(self):
+        return f'Comment by {self.name} on {self.post}'

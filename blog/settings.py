@@ -111,3 +111,17 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Конфигурация сервера электронной почты
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'modaravvv@gmail.com'
+EMAIL_HOST_PASSWORD = 'vpyoxrubimklsxqv'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# send_mail('Джанго почта',
+#           'Это электронное письмо было отправлено с Django.',
+#           'modaravvv@gmail.com',
+#           ['modaravvv@gmail.com',],
+#           fail_silently=False)

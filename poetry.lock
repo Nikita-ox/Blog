@@ -100,6 +100,17 @@ django = ">=3.0"
 pytz = "*"
 
 [[package]]
+name = "optional-django"
+version = "0.3.0"
+description = "Utils for providing optional support for django"
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "optional-django-0.3.0.tar.gz", hash = "sha256:2cd56b864ecf88e420aa882209ca7849114f38bc7089344cc9e476ea91aeb010"},
+]
+
+[[package]]
 name = "pillow"
 version = "9.5.0"
 description = "Python Imaging Library (Fork)"
@@ -261,4 +272,4 @@ brotli = ["Brotli"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "f02c28967b498d0302014ca1c8e5fe284d504392b7fe84e5d203d50a81017ffc"
+content-hash = "6eabf66f4a357d77641da4f002a2d49fbe0a73e5d4713efc13ad549b10ff186f"
