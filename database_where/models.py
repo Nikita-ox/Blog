@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models as m
 from django.utils import timezone
 from django.urls import reverse
+from taggit.managers import TaggableManager
 
 
 class PublishedManager(m.Manager):
@@ -26,6 +27,10 @@ class Post(m.Model):
     status = m.CharField(max_length=2,
                          choices=Status.choices,
                          default=Status.DRAFT)
+    """
+    Менеджер tags позволит добавлять, извлекать и удалять теги из объектов
+    """
+    tags = TaggableManager()
 
     objects = m.Manager()  # менеджер, применяемый по умолчанию
     published = PublishedManager()  # конкретно-прикладной менеджер
@@ -71,3 +76,5 @@ class Comment(m.Model):
 
     def __str__(self):
         return f'Comment by {self.name} on {self.post}'
+
+

@@ -1,31 +1,42 @@
 {% extends "database_where/post/base.html" %}
+{% load blog_tags %}
+
 {% block title %}{{ post.title }}{% endblock %}
 {% block content %}
     <h1>{{ post.title }}</h1>
     <p class="date">
         Published {{ post.publish }} by {{ post.author }}
     </p>
-    {{ post.body|linebreaks }}
+    {{ post.body|markdown }}
     <p>
         <a href="{% url "database_where:post_share" post.id %}">
             Поделиться этой записью
         </a>
     </p>
+    <h2>Похожие посты</h2>
+    {% for post in similar_posts %}
+        <p>
+            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+        </p>
+    {% empty %}
+        Подобных постов пока нет
+    {% endfor %}
+
     {% with comments.count as total_comments %}
         <h2>
-            {{ total_comments }} комментарий{{ total_comments|pluralize }}
+            {{ total_comments }} комментариев {{total_comments|pluralize}}
         </h2>
     {% endwith %}
     {% for comment in comments %}
         <div class="comment">
             <p class="info">
-                Comment {{ forloop.counter }} by {{ comment.name }}
+                Комментарий {{ forloop.counter }} {{ comment.name }}
                 {{ comment.created }}
             </p>
             {{ comment.body|linebreaks }}
         </div>
     {% empty %}
-        <p>There are no comments.</p>
+        <p>Нет комментариев</p>
     {% endfor %}
     {% include "database_where/post/includes/comment_form.html" %}
 
