@@ -5,6 +5,13 @@ body {
     font-family: helvetica, sans-serif;
 }
 
+.fon {
+   background-image:  url(https://get.pxhere.com/photo/landscape-nature-grass-outdoor-walking-structure-sky-field-lawn-meadow-prairie-countryside-sunlight-cloudy-hill-land-country-summer-walk-environment-rural-green-scenic-pasture-natural-park-scenery-plain-golf-course-trees-grassland-day-habitat-ecosystem-rural-area-green-field-natural-environment-geographical-feature-sport-venue-598583.jpg);
+    /*background-color: #00abff;*/
+   background-size:cover;
+ }
+
+
 
 a {
     color: #00abff;
@@ -61,7 +68,7 @@ input, textarea {
     clear: both;
     float: left;
     margin: 0 0 10px;
-    background: #f6efef;
+    background: #e0d9d9;
     border: 0;
     padding: 6px 10px;
     font-size: 12px;

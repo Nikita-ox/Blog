@@ -1,6 +1,8 @@
 from django import forms
+from django.contrib.postgres.search import SearchVector
+from django.shortcuts import render
 
-from database_where.models import Comment
+from database_where.models import Comment, Post
 
 
 class EmailPostForm(forms.Form):
@@ -15,3 +17,7 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ['name', 'email', 'body']
+
+
+class SearchForm(forms.Form):
+    query = forms.CharField()
